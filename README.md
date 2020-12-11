@@ -1,2 +1,2 @@
-# 2048 game clone with dark mode
+# 2048 game clone
  
