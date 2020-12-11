@@ -1,18 +1,20 @@
 
 <!DOCTYPE html>
-<HTML>
+<html>
   <head>
     <link rel="stylesheet" href="style.css">
     <title>
-      2048 Game
+      2048 Game Clone
     </title>
   </head>
-  <body>
-      <div class="container">
-        <div class="heading">
-          <h1 class="title">2048</h1>
-          <div class="score-container">0</div>
-        </div>
+  <body>  
+    <div class="container">
+          <div class="heading">
+            <h1 class="title">2048</h1>
+            <div class="toggle-container"><input type="checkbox" id="switch" name="mode" /><label for="switch"></label></div>
+            <div id="mode-name">Dark</div>
+            <div class="score-container">0</div>
+          </div>
         <div class="game-container">
           <div class="game-message">
             <p></p>
@@ -53,8 +55,7 @@
           </div>
         </div>
       </div>
-  
 </body>
       <script src='https://cdnjs.cloudflare.com/ajax/libs/hammer.js/1.0.6/hammer.min.js'></script>
       <script src="script.js"></script>
-</HTML>
+</html>

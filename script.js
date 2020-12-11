@@ -14,6 +14,18 @@ function GameManager(size, InputManager, Actuator) {
   this.setup();
 }
 
+//dark mode
+var checkbox = document.querySelector('input[name=mode]');
+checkbox.addEventListener('change',function() {
+    if(this.checked){
+        document.documentElement.setAttribute('data-mode', 'light')
+        document.getElementById("mode-name").innerHTML = "Light";
+    }else {
+        document.documentElement.setAttribute('data-mode', 'dark')
+        document.getElementById("mode-name").innerHTML = "Dark";
+    }
+})
+
 //restart the game
 GameManager.prototype.restart = function () {
   this.actuator.restart();
