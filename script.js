@@ -19,7 +19,8 @@ checkbox.addEventListener('change',function() {
     if(this.checked){
         document.documentElement.setAttribute('data-mode', 'light')
         document.getElementById("mode-name").innerHTML = "Light";
-    }else {
+    }
+    else {
         document.documentElement.setAttribute('data-mode', 'dark')
         document.getElementById("mode-name").innerHTML = "Dark";
     }
@@ -80,9 +81,9 @@ GameManager.prototype.move = function (direction) {
   var self = this;
   if (this.over || this.won) return;
   var cell, tile;
-  var vector     = this.getVector(direction);
+  var vector = this.getVector(direction);
   var traversals = this.buildTraversals(vector);
-  var moved      = false;
+  var moved = false;
   this.prepareTiles();
   traversals.x.forEach(function (x) {
     traversals.y.forEach(function (y) {
@@ -135,7 +136,6 @@ GameManager.prototype.buildTraversals = function (vector) {
   }
   if (vector.x === 1) traversals.x = traversals.x.reverse();
   if (vector.y === 1) traversals.y = traversals.y.reverse();
-
   return traversals;
 };
 
@@ -145,7 +145,6 @@ GameManager.prototype.findFarthestPosition = function (cell, vector) {
     previous = cell;
     cell = { x: previous.x + vector.x, y: previous.y + vector.y };
   } while (this.grid.withinBounds(cell) && this.grid.cellAvailable(cell));
-
   return {
     farthest: previous,
     next: cell
@@ -212,7 +211,6 @@ Grid.prototype.availableCells = function () {
       cells.push({ x: x, y: y });
     }
   });
-
   return cells;
 };
 
