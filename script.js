@@ -91,7 +91,7 @@ GameManager.prototype.move = function (direction) {
       tile = self.grid.cellContent(cell);
       if (tile) {
         var positions = self.findFarthestPosition(cell, vector);
-        var next      = self.grid.cellContent(positions.next);
+        var next = self.grid.cellContent(positions.next);
         if (next && next.value === tile.value && !next.mergedFrom) {
           var merged = new Tile(positions.next, tile.value * 2);
           merged.mergedFrom = [tile, next];
@@ -100,7 +100,8 @@ GameManager.prototype.move = function (direction) {
           tile.updatePosition(positions.next);
           self.score += merged.value;
           if (merged.value === 2048) self.won = true;
-        } else {
+        } 
+        else {
           self.moveTile(tile, positions.farthest);
         }
         if (!self.positionsEqual(cell, tile)) {
@@ -237,7 +238,8 @@ Grid.prototype.cellOccupied = function (cell) {
 Grid.prototype.cellContent = function (cell) {
   if (this.withinBounds(cell)) {
     return this.cells[cell.x][cell.y];
-  } else {
+  } 
+  else {
     return null;
   }
 };
@@ -274,8 +276,8 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
       });
     });
     self.updateScore(metadata.score);
-    if (metadata.over) self.message(false); // You lose
-    if (metadata.won) self.message(true); // You win!
+    if (metadata.over) self.message(false);
+    if (metadata.won) self.message(true); 
   });
 };
 
@@ -302,13 +304,15 @@ HTMLActuator.prototype.addTile = function (tile) {
       classes[2] = self.positionClass({ x: tile.x, y: tile.y });
       self.applyClasses(element, classes); 
     });
-  } else if (tile.mergedFrom) {
+  } 
+  else if (tile.mergedFrom) {
     classes.push("tile-merged");
     this.applyClasses(element, classes);
     tile.mergedFrom.forEach(function (merged) {
       self.addTile(merged);
     });
-  } else {
+  } 
+  else {
     classes.push("tile-new");
     this.applyClasses(element, classes);
   }
